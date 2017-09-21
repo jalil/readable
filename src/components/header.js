@@ -1,7 +1,7 @@
-import React, {Component}  from 'react';
+import React from 'react';
 
 const Header = (props) => {
-   return <div> Welcome to {props.headerText}</div>
+   return <div>{props.headerText}</div>
 }
 
 export default Header;
