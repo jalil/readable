@@ -8,3 +8,8 @@ body {
     color: #828282;    
     font-size: 10pt;
 }
+
+
+form a {
+    margin-left: 5px;
+}
