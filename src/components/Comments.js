@@ -14,8 +14,7 @@ class Comments extends Component {
  renderComments() {
     return this.props.selectedComments.map(comment => {
       if (comment) {
-         console.log("wjhwjhwjw",comment);
-        const { author, voteScore, id, body, timestamp } = comment;
+        const {category, author, voteScore, id, body, timestamp } = comment;
         const time = new Date(timestamp);
         const formatted = time.toLocaleDateString();
         return (
@@ -25,20 +24,12 @@ class Comments extends Component {
                 <Link to={`/edit/comment/${id}`}>edit</Link>
               </span>
             </div>
-            <h5 className="author-name">
               <span className="glyphicon glyphicon-user margin-right:10px">
                 {author}
               </span>
-            </h5>
-            <h4>
-              {body}
-            </h4>
-
-            <ul className="li-bundle">
-              <li>
                 {formatted}
-              </li>
-            </ul>
+              <br/>
+              {body}
           </div>
         );
       } else {
@@ -48,9 +39,9 @@ class Comments extends Component {
   }
 
   render() {
-      console.log("b439939",this.props.selectedComments);
     return (
 <div>
+            <h3>Comments </h3>
         {this.props.selectedComments
           ? <div>
               {this.renderComments()}
