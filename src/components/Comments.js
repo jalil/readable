@@ -41,6 +41,12 @@ class Comments extends Component {
   render() {
     return (
 <div>
+ <button
+          className="btn btn-danger pull-xs-right"
+          onClick={console.log("poop")}
+        >
+          Delete Post
+        </button>
             <h3>Comments </h3>
         {this.props.selectedComments
           ? <div>
