@@ -1,24 +1,24 @@
 import {
-  FETCH_COMMENT,
-  FETCH_COMMENTS,
+  GET_COMMENT,
+  GET_COMMENTS,
   VOTE_COMMENT,
   CREATE_COMMENT,
   DELETE_COMMENT,
-  FETCH_COMMENT_DETAIL,
+  GET_COMMENT_DETAIL,
   EDIT_COMMENT
 } from '../actions/';
 
 export default function(state = [], action) {
   switch (action.type) {
-    case FETCH_COMMENTS:
+    case GET_COMMENTS:
       return Object.assign({}, state, {
         [action.postId]: action.comments
       });
 
-    case FETCH_COMMENT:
+    case GET_COMMENT:
       return state;
 
-    case FETCH_COMMENT_DETAIL:
+    case GET_COMMENT_DETAIL:
       if (action.payload.data) {
         return action.payload.data;
       } else {
