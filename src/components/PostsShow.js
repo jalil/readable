@@ -1,22 +1,124 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { fetchPost } from "../actions";
-//import { withRouter } from "react-router-dom";
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
+import Comments from './Comments';
+import {
+  getPost,
+  deletePost,
+  getPosts,
+  upVote,
+  downVote,
+  getComments
+} from '../actions';
 
 class PostsShow extends Component {
   componentDidMount() {
-    const { id } = this.props.match.params;
-    this.props.fetchPost(id);
+    if (!this.props.post) {
+      const {id} = this.props.match.params;
+      this.props.getPost(id)
+      this.props.getComments();
+    }
+  }
+
+  postDelete(id) {
+      this.props.deletePost(id, () => {
+        this.props.history.push('/')
+      })
   }
 
   render() {
-    return <div>SHOW</div>;
-  }
-}
+    const {post} = this.props;
+    const {id} = this.props.match.params;
+    const comments = this.props.comments
+      ? this.props.comments[id]
+      : null
+    const num_of_comments = comments
+      ? comments.length
+      : 0
 
-function mapStateToProps({ posts }, ownProps) {
-  return {
-    post: posts[ownProps.match.params.id]
+    return (
+      <div>
+        <div className="navigate-button">
+          <Link to="/" className="btn btn-danger">Go back</Link>
+        </div>
+        <div className="col-md-8 col-md-offset-2">
+          <div className="read-detail">
+            <div className="edit-post">
+              <span className="glyphicon glyphicon-pencil">
+                <Link to={`/post/${post.id}/edit`}>edit</Link>
+              </span>
+            </div>
+            <h3>Title: {post.title}</h3>
+            <div className="post-body">
+              <h3>{post.body}</h3>
+            </div>
+
+            <p className="lead">
+              <span className="glyphicon glyphicon-user margin-right:10px">
+                {post.author}</span>
+            </p>
+
+            <ul className="li-bundle">
+
+              <li>
+                <span className="glyphicon glyphicon-time">
+                  {new Date(post.timestamp).toLocaleDateString()}</span>
+              </li>
+              <li>
+                <Link to={`/${post.category}/posts`}>
+                  {post.category}</Link>
+              </li>
+              <li>
+                <span className="glyphicon glyphicon-comment">
+                  {num_of_comments}</span>
+              </li>
+              <li>
+                <span className="glyphicon glyphicon-star-empty"></span>
+                {post.voteScore}</li>
+              <li onClick={() => this.props.upVote(post.id)}>
+                <span className="glyphicon glyphicon glyphicon-thumbs-up cursor"></span>
+              </li>
+              <li onClick={() => this.props.downVote(post.id)}>
+                <span className="glyphicon 	glyphicon glyphicon-thumbs-down cursor"></span>
+              </li>
+              <li onClick={() => this.postDelete(post.id)}>
+                <span className="glyphicon glyphicon-remove-sign cursor"></span>
+              </li>
+            </ul>
+
+          </div>
+
+          <h2>Comments</h2>
+          <Link className="btn btn-primary navigate-button" to={`/new/comment/${post.id}`}>
+            Add a Comment
+          </Link>
+
+          <div>
+            <Comments id={id}/>
+          </div>
+        </div>
+      </div>
+
+    );
   };
 }
-export default connect(mapStateToProps, { fetchPost })(PostsShow);
+
+function mapStateToProps({
+  posts,
+  comments
+}, ownProps) {
+
+  const post = (posts[ownProps.match.params.id])
+  console.log(posts);
+
+  return {post, comments};
+};
+
+export default connect(mapStateToProps, {
+  getPost,
+  deletePost,
+  getPosts,
+  upVote,
+  downVote,
+  getComments
+})(PostsShow);

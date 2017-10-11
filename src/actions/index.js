@@ -1,19 +1,19 @@
 import axios from "axios";
 
-export const FETCH_POSTS = 'FETCH_POSTS';
-export const FETCH_POST = 'FETCH_POST';
-export const  FETCH_ALL_CATEGORY= 'FETCH_ALL_CATEGORY';
-export const FETCH_BY_CATEGORY = 'FETCH_BY_CATEGORY';
+export const GET_POSTS = 'GET_POSTS';
+export const GET_POST = 'GET_POST';
+export const  GET_ALL_CATEGORY= 'GET_ALL_CATEGORY';
+export const GET_BY_CATEGORY = 'GET_BY_CATEGORY';
 export const CREATE_POST = 'CREATE_POST';
 export const EDIT_POST = 'EDIT_POST';
 export const DELETE_POST = 'DELETE_POST'
 export const UP_VOTE = "UP_VOTE";
 export const DOWN_VOTE = "DOWN_VOTE";
-export const FETCH_COMMENT = "FETCH_COMMENT"
-export const FETCH_COMMENTS = "FETCH_COMMENTS";
+export const GET_COMMENT = "GET_COMMENT"
+export const GET_COMMENTS = "GET_COMMENTS";
 export const EDIT_COMMENT ="EDIT_COMMENT"
-export const FETCH_COMMENT_DETAIL = 'FETCH_COMMENTS_DETAIL';
-export const FETCH_POST_EDIT = "FETCH_POST_EDIT";
+export const GET_COMMENT_DETAIL = 'GET_COMMENTS_DETAIL';
+export const GET_POST_EDIT = "GET_POST_EDIT";
 export const CREATE_COMMENT = "CREATE_COMMENT";
 export const DELETE_COMMENT = "DELETE_COMMENT";
 export const VOTE_COMMENT = "VOTE_COMMENT";
@@ -23,26 +23,12 @@ const headers = { headers: { 'Authorization': 'ohboyidontlikeredux' } };
 
 export function getPosts() {
   const request = axios.get(`${ROOT_URL}/posts`, headers);
+  console.log("jalil",request);
   return {
     type: GET_POSTS,
     payload: request
   };
 }
-
-export function sortPosts(value) {
-  const request = axios.get(`${ROOT_URL}/posts`, headers)
-  if (value === 'date') {
-  return {
-    type: SORT_POSTS_DATE,
-    payload: request
-  }}
-  else{
-    return {
-      type: SORT_POSTS_VOTE,
-      payload: request
-    }}
-  }
-
 
 
 export function getPost(id) {
@@ -88,7 +74,7 @@ export function editPost(id, values, callback) {
   };
 }
 
-export function getAllCategory(category) {
+export function getAllCategory() {
   const request = axios.get(`${ROOT_URL}/categories`, headers)
   return {
     type: GET_ALL_CATEGORY,
@@ -99,6 +85,7 @@ export function getAllCategory(category) {
 
 export function getByCategory(category) {
   const request = axios.get(`${ROOT_URL}/${category}/posts`, headers)
+  console.log(request);
 
   return {
     type: GET_BY_CATEGORY,

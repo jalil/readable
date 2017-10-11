@@ -8,7 +8,7 @@ import {
   getComments,
   deletePost,
 } from '../actions';
-import Categories from './categories';
+import Categories from './Categories';
 import _ from 'lodash';
 
 class PostsIndex extends Component {

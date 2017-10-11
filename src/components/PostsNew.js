@@ -6,6 +6,7 @@ import { createPost, editPost, getPostEdit } from '../actions';
 
 class PostsNew extends Component {
   componentDidMount() {
+  console.log(this.props.posts);
     if (this.props.posts) {
       const { id } = this.props.match.params;
       this.props.getPostEdit(id).then(() => {
@@ -60,7 +61,7 @@ class PostsNew extends Component {
 
   render() {
     const { handleSubmit } = this.props;
-
+    console.log(this.props.posts);
     return (
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         <h5 className="bold">Category</h5>

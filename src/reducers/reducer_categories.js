@@ -1,6 +1,4 @@
-import {
-GET_ALL_CATEGORY,
-} from '../actions/types';
+import { GET_ALL_CATEGORY} from '../actions/';
 
 export default function(state = [], action) {
 

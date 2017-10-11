@@ -7,6 +7,7 @@ import PostsIndex from "./components/PostsIndex";
 import PostsNew from "./components/PostsNew";
 import PostsShow from "./components/PostsShow";
 import Comments from "./components/Comments";
+import CommentsNew from "./components/CommentsNew";
 import Categories from "./components/Categories";
 import CategoryPosts from "./components/CategoryPosts";
 
@@ -21,12 +22,14 @@ class App extends Component {
         </div>
         <div className="container text-center">
           <Switch>
-            <Route path="/posts/new" component={PostsNew} />
-            <Route path="/posts/:id/comments" component={Comments} />
-            <Route path="/posts/:id" component={PostsShow} />
-            <Route path="/categories" component={Categories} />
-            <Route path="/:categories/posts" component={CategoryPosts} />
-            <Route path="/" component={PostsIndex} />
+            <Route exact path="/posts/new" component={PostsNew} />
+            <Route exact path="/new/comment/:parentId" component={CommentsNew} />
+            <Route exact path="/edit/comment/:id" component={CommentsNew} />
+            <Route exact path="/posts/:id/edit" component={PostsNew} />
+            <Route exact path="/categories" component={Categories} />
+            <Route exact path="/:categories/posts" component={CategoryPosts} />
+            <Route exact path="/" component={PostsIndex} />
+	    <Route exact path="/:category/:id" component={PostsShow}/>
           </Switch>
         </div>
       </div>

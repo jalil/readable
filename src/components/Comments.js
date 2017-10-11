@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import {fetchComment,fetchPost, fetchCommentDetails, fetchComments } from "../actions";
+import {getComment,getPost, getCommentDetail, getComments } from "../actions";
 import { connect } from "react-redux";
 import { Link, withRouter } from 'react-router-dom';
 
 class Comments extends Component {
   componentDidMount() {
     const { id } = this.props.match.params;
-   this.props.fetchComments(id);
-  this.props.fetchComment(id);
+   this.props.getComments(id);
+  this.props.getComment(id);
   }
 
 
@@ -41,7 +41,7 @@ class Comments extends Component {
   render() {
     return (
 <div>
- <button
+ 	<button
           className="btn btn-danger pull-xs-right"
           onClick={console.log("poop")}
         >
@@ -66,5 +66,5 @@ selectedComments
   };
 }
 export default withRouter (
-    connect(mapStateToProps, {fetchComment, fetchPost, fetchCommentDetails, fetchComments })(
+    connect(mapStateToProps, {getComment, getPost, getCommentDetail, getComments })(
   Comments));

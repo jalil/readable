@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import { fetchCategories } from "../actions";
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
+import {getAllCategory} from '../actions';
 
 class Categories extends Component {
-    componentWillMount() {
-        this.props.fetchCategories();
-    }
+  componentWillMount() {
+    this.props.getAllCategory()
+  }
 
-renderCategory() {
+  renderCategory() {
     return this.props.categories.map((category) => {
       return (
         <div className="read-detail" key={category.name}>
@@ -20,18 +20,19 @@ renderCategory() {
       );
     });
   }
+
   render() {
-      console.log(typeof(this.props.categories));
     return (
       <div>
         {this.renderCategory()}
       </div>
-    );
+    )
   }
 }
 
-function mapStateToProps({ categories }) {
-  return { categories };
-}
+function mapStateToProps({categories}) {
 
-export default connect(mapStateToProps, { fetchCategories })(Categories);
+  return {categories}
+};
+
+export default connect(mapStateToProps, {getAllCategory})(Categories);
