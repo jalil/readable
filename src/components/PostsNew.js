@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import { Field, reduxForm, initialize } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { createPost, editPost, getPostEdit } from '../actions';
+import { createPost, getPosts,editPost, getPostEdit } from '../actions';
 
 class PostsNew extends Component {
   componentDidMount() {
-  console.log(this.props.posts);
-    if (this.props.posts) {
+   this.props.getPosts();
+   if (this.props.posts) {
+
       const { id } = this.props.match.params;
+     console.log(id);
       this.props.getPostEdit(id).then(() => {
         this.handleInitialize();
       });
@@ -61,7 +63,6 @@ class PostsNew extends Component {
 
   render() {
     const { handleSubmit } = this.props;
-    console.log(this.props.posts);
     return (
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         <h5 className="bold">Category</h5>
@@ -127,5 +128,5 @@ export default reduxForm({
   validate,
   form: 'PostsForm'
 })(
-  connect(mapStateToProps, { createPost, editPost, getPostEdit })(PostsNew)
+  connect(mapStateToProps, { getPosts, createPost, editPost, getPostEdit })(PostsNew)
 );

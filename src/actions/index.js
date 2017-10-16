@@ -23,7 +23,6 @@ const headers = { headers: { 'Authorization': 'ohboyidontlikeredux' } };
 
 export function getPosts() {
   const request = axios.get(`${ROOT_URL}/posts`, headers);
-  console.log("jalil",request);
   return {
     type: GET_POSTS,
     payload: request
@@ -39,8 +38,8 @@ export function getPost(id) {
   };
 }
 
-export function getPostEdit(id) {
-  const request = axios.get(`${ROOT_URL}/posts/${id}`, headers);
+export function getPostEdit(id,callback) {
+  const request = axios.get(`${ROOT_URL}/posts/${id}`, headers)
   return {
     type: GET_POST_EDIT,
     payload: request

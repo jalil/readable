@@ -25,7 +25,7 @@ class App extends Component {
             <Route exact path="/posts/new" component={PostsNew} />
             <Route exact path="/new/comment/:parentId" component={CommentsNew} />
             <Route exact path="/edit/comment/:id" component={CommentsNew} />
-            <Route exact path="/posts/:id/edit" component={PostsNew} />
+            <Route exact path="/post/:id/edit" component={PostsNew} />
             <Route exact path="/categories" component={Categories} />
             <Route exact path="/:categories/posts" component={CategoryPosts} />
             <Route exact path="/" component={PostsIndex} />

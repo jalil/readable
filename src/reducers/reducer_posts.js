@@ -20,6 +20,7 @@ export default function(state = {}, action) {
       return { ...state, [action.payload.data.id]: action.payload.data };
 
     case GET_POST_EDIT:
+       console.log(action.payload.data)
       return action.payload.data;
 
     case CREATE_POST:
