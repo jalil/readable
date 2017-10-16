@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {getComment,getPost, getCommentDetail, getComments } from "../actions";
+import { voteComment,deleteComment,getComment,getPost, getCommentDetail, getComments } from "../actions";
 import { connect } from "react-redux";
 import { Link, withRouter } from 'react-router-dom';
 
@@ -8,6 +8,12 @@ class Comments extends Component {
     const { id } = this.props.match.params;
    this.props.getComments(id);
   this.props.getComment(id);
+  }
+
+ commentDelete(id) {
+      this.props.deleteComment(id, () => {
+        this.props.history.push('/');
+      });
   }
 
 
@@ -30,6 +36,22 @@ class Comments extends Component {
                 {formatted}
               <br/>
               {body}
+
+	<ul className="li-bundle">
+              <li>
+                <span className="glyphicon glyphicon-star-empty" />
+                {voteScore}
+              </li>
+              <li onClick={() => this.props.voteComment(id, 'upVote')}>
+                <span className="glyphicon glyphicon glyphicon-thumbs-up cursor" />
+              </li>
+              <li onClick={() => this.props.voteComment(id, 'downVote')}>
+                <span className="glyphicon glyphicon glyphicon-thumbs-down cursor" />
+              </li>
+              <li onClick={() => this.commentDelete(id)}>
+                <span className="glyphicon glyphicon-remove-sign cursor" />
+              </li>
+            </ul>
           </div>
         );
       } else {
@@ -66,5 +88,5 @@ selectedComments
   };
 }
 export default withRouter (
-    connect(mapStateToProps, {getComment, getPost, getCommentDetail, getComments })(
+    connect(mapStateToProps, { voteComment,deleteComment,getComment, getPost, getCommentDetail, getComments })(
   Comments));

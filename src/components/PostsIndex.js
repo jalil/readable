@@ -80,10 +80,10 @@ class PostsIndex extends Component {
                 <span className="glyphicon glyphicon-star-empty"></span>
                 {voteScore}</li>
               <li onClick={() => this.props.upVote(id)}>
-                <span className="glyphicon glyphicon glyphicon-thumbs-up cursor"></span>
+                <span className="glyphicon glyphicon glyphicon-thumbs-up cursor">VOTE UP</span>
               </li>
               <li onClick={() => this.props.downVote(id)}>
-                <span className="glyphicon	glyphicon glyphicon-thumbs-down cursor"></span>
+                VOTE DOWN<span className="glyphicon	glyphicon glyphicon-thumbs-down cursor"></span>
               </li>
               <li onClick={() => this.postDelete(id)}>
 		
