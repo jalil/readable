@@ -9,10 +9,6 @@ This is Fakernews project using React and Reducer, I built a content and comment
   - Access it at http://localhost:3000/ to view the app.
 
 
-
-- Updates are triggered by dispatching actions to reducers.
-Reducers and actions are written properly and correctly return updated state to the store.
-
 - Listed posts are displayed with title, author, number of comments, current score, and a voting mechanism to upvote or downvote the post. Posts should have buttons or links for editing or deleting that post.
 
 - The voting mechanism works and correctly displays the new vote score after clicking.
@@ -44,5 +40,5 @@ Reducers and actions are written properly and correctly return updated state to 
 
 - Edit buttons for posts/comments open a form with existing data pre-populated. Submitting the form correctly updates the data for the comment/post.
 
-- A mechanism for deleting posts and comments exists. Clicking the button/link correctly removes the post/comment from list view and makes post inaccessible at it's URL.
+- A mechanism for deleting posts 
 
