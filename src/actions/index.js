@@ -1,22 +1,26 @@
 import axios from "axios";
 
-export const GET_POSTS = 'GET_POSTS';
-export const GET_POST = 'GET_POST';
-export const  GET_ALL_CATEGORY= 'GET_ALL_CATEGORY';
-export const GET_BY_CATEGORY = 'GET_BY_CATEGORY';
-export const CREATE_POST = 'CREATE_POST';
-export const EDIT_POST = 'EDIT_POST';
-export const DELETE_POST = 'DELETE_POST'
-export const UP_VOTE = "UP_VOTE";
-export const DOWN_VOTE = "DOWN_VOTE";
-export const GET_COMMENT = "GET_COMMENT"
-export const GET_COMMENTS = "GET_COMMENTS";
-export const EDIT_COMMENT ="EDIT_COMMENT"
-export const GET_COMMENT_DETAIL = 'GET_COMMENTS_DETAIL';
-export const GET_POST_EDIT = "GET_POST_EDIT";
-export const CREATE_COMMENT = "CREATE_COMMENT";
-export const DELETE_COMMENT = "DELETE_COMMENT";
-export const VOTE_COMMENT = "VOTE_COMMENT";
+
+import {
+  GET_POSTS,
+  GET_POST,
+  GET_BY_CATEGORY,
+  CREATE_POST,
+  EDIT_POST,
+  DELETE_POST,
+  UP_VOTE,
+  DOWN_VOTE,
+  GET_ALL_CATEGORY,
+  GET_COMMENT,
+  GET_COMMENTS,
+  GET_COMMENT_DETAIL,
+  GET_POST_EDIT,
+  CREATE_COMMENT,
+  EDIT_COMMENT,
+  DELETE_COMMENT,
+  VOTE_COMMENT,
+
+} from './types';
 
 const ROOT_URL = 'http://localhost:3001';
 const headers = { headers: { 'Authorization': 'ohboyidontlikeredux' } };
@@ -84,7 +88,6 @@ export function getAllCategory() {
 
 export function getByCategory(category) {
   const request = axios.get(`${ROOT_URL}/${category}/posts`, headers)
-  console.log(request);
 
   return {
     type: GET_BY_CATEGORY,

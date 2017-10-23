@@ -65,8 +65,7 @@ class PostsShow extends Component {
                   {new Date(post.timestamp).toLocaleDateString()}</span>
               </li>
               <li>
-                <Link to={`/${post.category}/posts`}>
-                  {post.category}</Link>
+                  {post.category}
               </li>
               <li>
                 <span className="glyphicon glyphicon-comment">

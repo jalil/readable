@@ -41,7 +41,7 @@ class PostsCategory extends Component {
       const comments = this.props.comments ? this.props.comments[id] : null;
       const num_of_comments = comments ? comments.length : 0;
 
-      if (!deleted && post) {
+      if ( post) {
         return (
           <div className="read-detail" key={id}>
             <div className="edit-post">
@@ -49,11 +49,9 @@ class PostsCategory extends Component {
                 <Link to={`/post/${id}/edit`}>edit</Link>
               </span>
             </div>
-            <Link to={`/${category}/${id}`}>
               <h3>
                 Title: {title}
               </h3>
-            </Link>
 
             <p className="lead">
               <span className="glyphicon glyphicon-user margin-right:10px">
@@ -68,9 +66,7 @@ class PostsCategory extends Component {
                 </span>
               </li>
               <li>
-                <Link to={`/${category}/posts`}>
                   {' '}{category}
-                </Link>
               </li>
               <li>
                 <span className="glyphicon glyphicon-comment">
@@ -84,9 +80,9 @@ class PostsCategory extends Component {
               </li>
             </ul>
           </div>
-        );
+        )
       } else {
-        <h1> JALIL No Post</h1>;
+        <h1> No Post</h1>;
       }
     });
   }

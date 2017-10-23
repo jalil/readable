@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { voteComment,deleteComment,getComment,getPost, getCommentDetail, getComments } from "../actions";
+import * as actions from '../actions/comments';
 import { connect } from "react-redux";
 import { Link, withRouter } from 'react-router-dom';
 
@@ -63,12 +63,6 @@ class Comments extends Component {
   render() {
     return (
 <div>
- 	<button
-          className="btn btn-danger pull-xs-right"
-          onClick={console.log("poop")}
-        >
-          Delete Post
-        </button>
             <h3>Comments </h3>
         {this.props.selectedComments
           ? <div>
@@ -88,5 +82,5 @@ selectedComments
   };
 }
 export default withRouter (
-    connect(mapStateToProps, { voteComment,deleteComment,getComment, getPost, getCommentDetail, getComments })(
+    connect(mapStateToProps, actions)(
   Comments));

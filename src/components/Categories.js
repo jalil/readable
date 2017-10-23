@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import {getAllCategory} from '../actions';
 
 class Categories extends Component {
-  componentWillMount() {
+  componentDidMount() {
     this.props.getAllCategory()
   }
 

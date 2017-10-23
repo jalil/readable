@@ -1,0 +1,17 @@
+export const GET_POSTS = 'get_posts';
+export const GET_POST = 'get_post';
+export const GET_ALL_CATEGORY = 'get_all_category';
+export const GET_BY_CATEGORY = 'get_by_category';
+export const CREATE_POST = 'create_post';
+export const EDIT_POST = 'edit_post';
+export const DELETE_POST = 'delete_post'
+export const UP_VOTE = "up_vote";
+export const DOWN_VOTE = "down_vote";
+export const GET_COMMENT = "get_comment"
+export const GET_COMMENTS = "get_comments";
+export const EDIT_COMMENT ="edit_comment"
+export const GET_COMMENT_DETAIL = 'get_comments_detail';
+export const GET_POST_EDIT = "get_post_edit";
+export const CREATE_COMMENT = "create_comment";
+export const DELETE_COMMENT = "delete_comment";
+export const VOTE_COMMENT = "VOTE_COMMENT";

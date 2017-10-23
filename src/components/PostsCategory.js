@@ -15,7 +15,6 @@ class PostsCategory extends Component {
    if (this.props.bycategory) {
     this.props.getComments();
       const  category  = this.props.match.params.categories;
-      console.log("yes",category);
       this.props.getByCategory(category);
      this.props.getComments();
   }

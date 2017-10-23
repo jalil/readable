@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Field, reduxForm, initialize } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { createPost, getPosts,editPost, getPostEdit } from '../actions';
+import { createPost, getPosts,editPost, getPostEdit } from '../actions/posts';
 
 class PostsNew extends Component {
   componentDidMount() {
@@ -10,7 +10,6 @@ class PostsNew extends Component {
    if (this.props.posts) {
 
       const { id } = this.props.match.params;
-     console.log(id);
       this.props.getPostEdit(id).then(() => {
         this.handleInitialize();
       });
