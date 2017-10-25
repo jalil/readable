@@ -11,8 +11,7 @@ import CommentsNew from "./components/CommentsNew";
 import Categories from "./components/Categories";
 import CategoryPosts from "./components/CategoryPosts";
 
-class App extends Component {
-  render() {
+const App = () =>  {
     return (
       <div className="App">
         <div className="App-header">
@@ -34,7 +33,6 @@ class App extends Component {
         </div>
       </div>
     );
-  }
 }
 
 export default App;
