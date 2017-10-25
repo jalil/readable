@@ -2,13 +2,13 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import Categories from './Categories';
-import * as actions from '../actions/posts';
+import {getPosts, getComments}  from '../actions/';
 import _ from 'lodash';
 
 class PostsIndex extends Component {
   componentDidMount() {
     this.props.getPosts();
-//    this.props.getComments();
+    this.props.getComments();
 
   }
 
@@ -114,11 +114,11 @@ class PostsIndex extends Component {
   };
 }
 
-function mapStateToProps({posts}) {
+function mapStateToProps({posts, comments}) {
 
-  return {posts}
-  //return {posts, comments}
+// return {posts}
+  return {posts, comments}
 };
 
-export default connect(mapStateToProps, actions
+export default connect(mapStateToProps, {getPosts,getComments}
 )(PostsIndex);
