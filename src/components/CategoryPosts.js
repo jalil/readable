@@ -13,7 +13,6 @@ import _ from 'lodash';
 class PostsCategory extends Component {
   componentDidMount() {
    if (this.props.bycategory) {
-    this.props.getComments();
       const  category  = this.props.match.params.categories;
       this.props.getByCategory(category);
      this.props.getComments();
@@ -76,7 +75,7 @@ class PostsCategory extends Component {
               <li>
               </li>
               <li onClick={() => this.postDelete(id)}>
-                <span className="glyphicon glyphicon-remove-sign cursor" />
+                <span className="glyphicon glyphicon-remove-sign cursor" /> DELETE POST
               </li>
             </ul>
           </div>
@@ -90,8 +89,13 @@ class PostsCategory extends Component {
 
   render() {
     return (
+	<div>
+ <div className="navigate-button">
+          <Link to="/" className="btn btn-danger">Go back</Link>
+        </div>
       <div className="row">
               {this.renderPosts()}
+      </div>
       </div>
     );
   }
