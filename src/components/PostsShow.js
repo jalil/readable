@@ -75,13 +75,16 @@ class PostsShow extends Component {
                 <span className="glyphicon glyphicon-star-empty"></span>
                 {post.voteScore}</li>
               <li onClick={() => this.props.upVote(post.id)}>
-                <span className="glyphicon glyphicon glyphicon-thumbs-up cursor"></span>
+                <span className="glyphicon glyphicon glyphicon-thumbs-up cursor"> UPVOTE</span>
               </li>
               <li onClick={() => this.props.downVote(post.id)}>
-                <span className="glyphicon 	glyphicon glyphicon-thumbs-down cursor"></span>
+                <span className="glyphicon 	glyphicon glyphicon-thumbs-down cursor">DOWNVOTE</span>
               </li>
               <li onClick={() => this.postDelete(post.id)}>
-                <span className="glyphicon glyphicon-remove-sign cursor"></span>
+                <span className="glyphicon glyphicon-remove-sign cursor">
+		 <Link className="btn btn-primary navigate-button" to="/">
+            DELETE
+          </Link></span>
               </li>
             </ul>
 
