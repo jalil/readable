@@ -19,6 +19,9 @@ import {
   EDIT_COMMENT,
   DELETE_COMMENT,
   VOTE_COMMENT,
+  SORT_POSTS_BY_DATE,
+  SORT_POSTS_BY_VOTE,
+
 
 } from './types';
 
@@ -189,3 +192,18 @@ export const getComments = function () {
     });
   };
 };
+
+export function sortPosts(value) {
+  const request = axios.get(`${ROOT_URL}/posts`, headers)
+  if (value === 'date') {
+  return {
+    type: SORT_POSTS_BY_DATE,
+    payload: request
+  }}
+  else{
+    return {
+      type: SORT_POSTS_BY_VOTE,
+      payload: request
+    }}
+  }
+

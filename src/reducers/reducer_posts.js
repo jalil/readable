@@ -7,7 +7,9 @@ import {
   DOWN_VOTE,
   EDIT_POST,
   DELETE_POST,
-  GET_POST_EDIT
+  GET_POST_EDIT,
+SORT_POSTS_BY_DATE,
+SORT_POSTS_BY_VOTE
 } from '../actions/types';
 
 export default function(state = {}, action) {
@@ -36,6 +38,15 @@ export default function(state = {}, action) {
 
     case DOWN_VOTE:
       return { ...state, [action.payload.data.id]: action.payload.data };
+
+	
+    case SORT_POSTS_BY_DATE:
+      const postsDate = _.sortBy(action.payload.data, 'timestamp').reverse();
+      return _.mapKeys(postsDate, 'id');
+
+    case SORT_POSTS_BY_VOTE:
+      const postsVote = _.sortBy(action.payload.data, 'voteScore').reverse();
+      return _.mapKeys(postsVote, 'id');
 
     default:
       return state;

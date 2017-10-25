@@ -15,3 +15,5 @@ export const GET_POST_EDIT = "get_post_edit";
 export const CREATE_COMMENT = "create_comment";
 export const DELETE_COMMENT = "delete_comment";
 export const VOTE_COMMENT = "VOTE_COMMENT";
+export const SORT_POSTS_BY_DATE = "sort_posts_by_date";
+export const SORT_POSTS_BY_VOTE = "sort_posts_by_vote";

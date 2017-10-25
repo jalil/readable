@@ -4,13 +4,14 @@ import {Link} from 'react-router-dom';
 import Categories from './Categories';
 import * as actions from '../actions/posts';
 //import * as actions from '../actions/posts';
-import {getPosts,getComments} from '../actions/';
+import {sortPosts,getPosts,getComments} from '../actions/';
 import _ from 'lodash';
 
 class PostsIndex extends Component {
   componentDidMount() {
     this.props.getPosts();
     this.props.getComments();
+    console.log(this.props.sortPosts());
 
   }
 
@@ -96,6 +97,16 @@ class PostsIndex extends Component {
 
     return (
       <div className="row">
+       <div>
+        <select className="selectpicker show-tick sort" onChange={(event) => {
+          this.props.sortPosts(event.target.value)
+        }}>
+          <option disabled selected="selected">Sort</option>
+          <option value="score">Top Score</option>
+          <option value="date">Most recent</option>
+        </select>
+        </div>
+
         <div className="add-post">
           <Link className="btn btn-primary navigate-button" to="/posts/new">
             Add a Post
@@ -122,5 +133,5 @@ function mapStateToProps({posts,comments}) {
   return {posts, comments}
 };
 
-export default connect(mapStateToProps, {getPosts,getComments}
+export default connect(mapStateToProps, {getPosts,getComments,sortPosts}
 )(PostsIndex);

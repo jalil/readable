@@ -8,6 +8,7 @@ This is Fakernews project using React and Reducer, I built a content and comment
   - run npm start
   - Access it at http://localhost:3000/ to view the app.
 
+### PLEASE MAKE SURE THE API SERVER IS RUNNING ON PORT 3001 before you run the  above commands
 
 - Listed posts are displayed with title, author, number of comments, current score, and a voting mechanism to upvote or downvote the post. Posts should have buttons or links for editing or deleting that post.
 
