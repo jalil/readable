@@ -17,7 +17,7 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <h2>
-            <Header headerText="FakerNews" /> 
+          <Link  to="/" > FakerNews</Link> 
           </h2>
         </div>
         <div className="container text-center">
