@@ -9,11 +9,14 @@ class Categories extends Component {
   }
 
   renderCategory() {
-    return this.props.categories.map((category) => {
+
+    const { categories } = this.props;
+    return categories.map((category) => {
+     const { name } = category;
       return (
         <div className="read-detail" key={category.name}>
           <h3>
-            <Link to={`/${category.name}/posts`}>{category.name}</Link>
+            <Link to={`/${name}/posts`}>{name}</Link>
           </h3>
         </div>
 
