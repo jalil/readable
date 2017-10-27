@@ -9,10 +9,15 @@ class Categories extends Component {
   }
 
   renderCategory() {
+<<<<<<< HEAD
 
     const { categories } = this.props;
     return categories.map((category) => {
      const { name } = category;
+=======
+    return this.props.categories.map((category) => {
+      const { name } = category;
+>>>>>>> review-2
       return (
         <div className="read-detail" key={category.name}>
           <h3>

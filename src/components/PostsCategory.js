@@ -15,7 +15,6 @@ class PostsCategory extends Component {
    if (this.props.bycategory) {
       const  category  = this.props.match.params.categories;
       this.props.getByCategory(category);
-     this.props.getComments();
   }
   }
 
@@ -85,7 +84,7 @@ class PostsCategory extends Component {
           </div>
         );
       } else {
-        <h1> JALIL No Post</h1>;
+        <h1> No Post</h1>;
       }
     });
   }
@@ -94,7 +93,6 @@ class PostsCategory extends Component {
   render() {
     return (
       <div className="row">
-		blah
               {this.renderPosts()}
       </div>
     );

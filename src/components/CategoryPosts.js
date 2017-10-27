@@ -42,6 +42,10 @@ class PostsCategory extends Component {
 
       if ( post) {
         return (
+	<div>
+	 <div className="navigate-button">
+          <Link to="/" className="btn btn-danger">Go back</Link>
+        </div>
           <div className="read-detail" key={id}>
             <div className="edit-post">
               <span className="glyphicon glyphicon-pencil">
@@ -78,6 +82,7 @@ class PostsCategory extends Component {
                 <span className="glyphicon glyphicon-remove-sign cursor" /> DELETE POST
               </li>
             </ul>
+          </div>
           </div>
         )
       } else {

@@ -2,16 +2,23 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import Categories from './Categories';
+<<<<<<< HEAD
 import * as actions from '../actions/posts';
 //import * as actions from '../actions/posts';
 import {downVote,upVote, sortPosts,getPosts,getComments} from '../actions/';
+=======
+import {getPosts, getComments}  from '../actions/';
+>>>>>>> review-2
 import _ from 'lodash';
 
 class PostsIndex extends Component {
   componentDidMount() {
     this.props.getPosts();
     this.props.getComments();
+<<<<<<< HEAD
     console.log(this.props.sortPosts());
+=======
+>>>>>>> review-2
 
   }
 
@@ -127,6 +134,7 @@ class PostsIndex extends Component {
   };
 }
 
+<<<<<<< HEAD
 function mapStateToProps({posts,comments}) {
 
   //return {posts}
@@ -134,4 +142,13 @@ function mapStateToProps({posts,comments}) {
 };
 
 export default connect(mapStateToProps, {upVote,getPosts,getComments,downVote,sortPosts}
+=======
+function mapStateToProps({posts, comments}) {
+
+// return {posts}
+  return {posts, comments}
+};
+
+export default connect(mapStateToProps, {getPosts,getComments}
+>>>>>>> review-2
 )(PostsIndex);
