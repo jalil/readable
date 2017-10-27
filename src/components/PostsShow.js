@@ -96,6 +96,7 @@ class PostsShow extends Component {
           </Link>
 
           <div>
+	    JALIL COMMEN
             <Comments id={id}/>
           </div>
         </div>

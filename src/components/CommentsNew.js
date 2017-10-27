@@ -6,10 +6,6 @@ import { createComment, editComment, getCommentDetail } from '../actions';
 
 class CommentsForm extends Component {
 
-  constructor() {
-  super();
-  this.onSubmit = this.onSubmit.bind(this);
-}
   componentDidMount() {
     if (this.props.match.params.id) {
       const { id } = this.props.match.params;
@@ -64,9 +60,10 @@ class CommentsForm extends Component {
 
   render() {
 
+	 const { handleSubmit } = this.props;
     return (
 <div>
-      <form onSubmit={this.onSubmit()}>
+       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         <Field
           label="Author"
           name="author"
@@ -83,7 +80,7 @@ class CommentsForm extends Component {
           type="submit"
           className="btn btn-primary submit sumbmit-comment"
         >
-        <Link to="/:category/:id" >  Submit </Link>
+          Submit
         </button>
         <Link to="/" className="btn btn-danger">
           Cancel

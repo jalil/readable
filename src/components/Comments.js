@@ -49,7 +49,7 @@ class Comments extends Component {
                 <span className="glyphicon glyphicon glyphicon-thumbs-down cursor" />
               </li>
               <li onClick={() => this.commentDelete(id)}>
-                <span className="glyphicon glyphicon-remove-sign cursor" />
+                <span className="glyphicon glyphicon-remove-sign cursor" /> DELETE COMMENTO
               </li>
             </ul>
           </div>
