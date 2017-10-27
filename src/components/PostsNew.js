@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import { Field, reduxForm, initialize } from 'redux-form';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { createPost, getPosts,editPost, getPostEdit } from '../actions/posts';
+import { createPost, editPost, getPostEdit } from '../actions';
 
 class PostsNew extends Component {
   componentDidMount() {
-   this.props.getPosts();
-   if (this.props.posts) {
-
+  console.log(this.props.posts);
+    if (this.props.posts) {
       const { id } = this.props.match.params;
       this.props.getPostEdit(id).then(() => {
         this.handleInitialize();
@@ -62,6 +61,7 @@ class PostsNew extends Component {
 
   render() {
     const { handleSubmit } = this.props;
+    console.log(this.props.posts);
     return (
       <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         <h5 className="bold">Category</h5>
@@ -119,6 +119,20 @@ function validate(values) {
   return errors;
 }
 
+const practice = { breathe: 1, inhale: 'exhale' };
+
+const { breathe, inhale } = practice;
+
+console.log(inhale);
+
+const state = { posts: [ 1, 2, 3 ] }
+
+
+const { posts, meta } = state;
+
+
+Array.isArray(meta) == false
+
 function mapStateToProps({ posts }) {
   return { posts };
 }
@@ -127,5 +141,6 @@ export default reduxForm({
   validate,
   form: 'PostsForm'
 })(
-  connect(mapStateToProps, { getPosts, createPost, editPost, getPostEdit })(PostsNew)
+  connect(mapStateToProps, { createPost, editPost, getPostEdit })(PostsNew)
 );
+

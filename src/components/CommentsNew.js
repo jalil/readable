@@ -5,14 +5,6 @@ import { connect } from 'react-redux';
 import { createComment, editComment, getCommentDetail } from '../actions';
 
 class CommentsForm extends Component {
-
-<<<<<<< HEAD
-=======
-  constructor() {
-  super();
-  this.onSubmit = this.onSubmit.bind(this);
-}
->>>>>>> review-2
   componentDidMount() {
     if (this.props.match.params.id) {
       const { id } = this.props.match.params;
@@ -70,11 +62,7 @@ class CommentsForm extends Component {
 	 const { handleSubmit } = this.props;
     return (
 <div>
-<<<<<<< HEAD
        <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-=======
-      <form onSubmit={this.onSubmit(this)}>
->>>>>>> review-2
         <Field
           label="Author"
           name="author"

@@ -16,11 +16,7 @@ const App = () =>  {
       <div className="App">
         <div className="App-header">
           <h2>
-<<<<<<< HEAD
-            <Link to="/">  FakerNews </Link>
-=======
           <Link  to="/" > FakerNews</Link> 
->>>>>>> review-2
           </h2>
         </div>
         <div className="container text-center">
