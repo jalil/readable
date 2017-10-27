@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import Categories from './Categories';
 import * as actions from '../actions/posts';
 //import * as actions from '../actions/posts';
-import {sortPosts,getPosts,getComments} from '../actions/';
+import {downVote,upVote, sortPosts,getPosts,getComments} from '../actions/';
 import _ from 'lodash';
 
 class PostsIndex extends Component {
@@ -133,5 +133,5 @@ function mapStateToProps({posts,comments}) {
   return {posts, comments}
 };
 
-export default connect(mapStateToProps, {getPosts,getComments,sortPosts}
+export default connect(mapStateToProps, {upVote,getPosts,getComments,downVote,sortPosts}
 )(PostsIndex);
