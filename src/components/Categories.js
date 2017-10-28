@@ -6,7 +6,9 @@ import {getAllCategory} from '../actions';
 
 class Categories extends Component {
   componentWillMount() {
-    this.props.getAllCategory()
+    if(this.props.getAllCategory){
+	this.props.getAllCategory	
+	}	
   }
 
   renderCategory() {
