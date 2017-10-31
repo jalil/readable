@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import Categories from './Categories';
 import * as actions from '../actions/posts';
-import {downVote,upVote, sortPosts,getPosts,getComments} from '../actions/';
+import {deletePost,downVote,upVote, sortPosts,getPosts,getComments} from '../actions/';
 import _ from 'lodash';
 
 class PostsIndex extends Component {
@@ -68,7 +68,7 @@ class PostsIndex extends Component {
               </li>
               <li>
                 <span className="glyphicon glyphicon-comment">
-                  {noOfComments}</span>
+                 comments: {noOfComments}</span>
               </li>
               <li>
                 <span className="glyphicon glyphicon-star-empty"></span>
@@ -78,6 +78,9 @@ class PostsIndex extends Component {
               </li>
               <li onClick={() => this.props.downVote(id)}>
                 VOTE DOWN<span className="glyphicon	glyphicon glyphicon-thumbs-down cursor"></span>
+              </li>
+<li onClick={() => this.postDelete(id)}>
+                <span className="glyphicon glyphicon-remove-sign cursor">DELETE</span>
               </li>
             </ul>
           </div>
@@ -125,4 +128,4 @@ function mapStateToProps({posts,comments}) {
   return {posts, comments}
 };
 
-export default connect(mapStateToProps, {upVote,getPosts,getComments,downVote,sortPosts})(PostsIndex)
+export default connect(mapStateToProps, {deletePost,upVote,getPosts,getComments,downVote,sortPosts})(PostsIndex)
