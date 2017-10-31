@@ -40,16 +40,16 @@ class Comments extends Component {
 	<ul className="li-bundle">
               <li>
                 <span className="glyphicon glyphicon-star-empty" />
-                {voteScore}
+                vote-score:{voteScore}
               </li>
               <li onClick={() => this.props.voteComment(id, 'upVote')}>
-                <span className="glyphicon glyphicon glyphicon-thumbs-up cursor" />
+                <span className="glyphicon glyphicon glyphicon-thumbs-up cursor" />VOTE-UP
               </li>
               <li onClick={() => this.props.voteComment(id, 'downVote')}>
-                <span className="glyphicon glyphicon glyphicon-thumbs-down cursor" />
+                <span className="glyphicon glyphicon glyphicon-thumbs-down cursor" />VOTE-DOWN
               </li>
               <li onClick={() => this.commentDelete(id)}>
-                <span className="glyphicon glyphicon-remove-sign cursor" /> DELETE COMMENTO
+                <span className="glyphicon glyphicon-remove-sign cursor" /> DELETE 
               </li>
             </ul>
           </div>
