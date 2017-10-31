@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 import Comments from './Comments';
+import Post404 from './Posts404';
 import {
   getPost,
   deletePost,
@@ -35,6 +36,10 @@ class PostsShow extends Component {
     const num_of_comments = comments
       ? comments.length
       : 0
+
+   if (!post) {
+      return <Post404 />
+    }
 
     return (
       <div>
