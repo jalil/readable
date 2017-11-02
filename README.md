@@ -2,6 +2,17 @@
 
 This is Readable project using React and Reducer, I built a content and comment web app. Users will be able to post content to predefined categories, comment on their posts and other users' posts, and vote on posts and comments. Users will also be able to edit and delete posts and comments.
 
+### API_SERVER SETUP
+git clone https://github.com/udacity/reactnd-project-readable-starter.git
+
+cd reactnd-project-readable-starter
+* Install and start the API server
+    - `cd api-server`
+    - `npm install`
+    - `node server`
+
+
+##FRONTEND SETUP
 ### Dependencies
 - Please refer to package.json file.
 
